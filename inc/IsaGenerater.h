@@ -4,8 +4,11 @@
 /************************************************************************/
 #pragma once
 
+#include "../inc/ff_hip_runtime.h"
+
 namespace feifei
 {
+
 #define	PARAM_START_COL		(44)
 #define	FLAG_START_COL		(85)
 #define	COMMON_START_COL	(109)
@@ -1075,7 +1078,7 @@ namespace feifei
 				currToken.valChar = *src_pos;
 				src_pos++;
 			}
-			else if (*src_pos == '？' || *src_pos == ':')
+			else if (*src_pos == '?' || *src_pos == ':')
 			{
 				currToken.type = E_Token::Other;
 				currToken.valChar = *src_pos;

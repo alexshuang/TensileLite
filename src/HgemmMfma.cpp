@@ -21,7 +21,7 @@ C:	______M_______
 */
 
 static unsigned int g_debugDataNum = 1;
-static bool g_EnTensileLayout = false;
+static bool g_EnTensileLayout = true;
 static bool g_passCpu = false;
 
 static uint32_t g_DataType = 2; // 1=fp32; 2=fp16; 3=bf16
@@ -87,13 +87,15 @@ E_ReturnState GemmMfmaAsmSolution::generateKernel()
 	kernelParam.gemmType = g_DataType;
 	kernelParam.waveMethod = wave_method;
 	kernelParam.enTensileLayout = g_EnTensileLayout;
-	kernelParam.M = M; kernelParam.N = N; kernelParam.K = K;
+	kernelParam.M = 480;
+    kernelParam.N = 1024;
+    kernelParam.K = 1024;
 	kernelParam.wave_num_per_simd = 1;
 	kernelParam.mfma_pttn_per_wave[0] = mfma_pttn0;
 	kernelParam.mfma_pttn_per_wave[1] = mfma_pttn1;
 	kernelParam.wave_pttn_per_group[0] = 2; 
 	kernelParam.wave_pttn_per_group[1] = 2;
-	kernelParam.DepthU = depth_u;
+	kernelParam.DepthU = 32;
 	kernelParam.dbgNum = g_debugDataNum;
 
 	// generate kernel source

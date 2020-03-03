@@ -1,4 +1,4 @@
-target = tl
+target = tensile_lite
 OBJS = src/main.o src/gemmMfma.o
 LIBS = -lff_gpu -lff_utils -lhip_hcc
 ROCM_PATH=/opt/rocm
